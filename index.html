@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TripInn Holidays</title>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f4ef;
+            color: #171717;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .navbar {
+            height: 75px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+            font-size: 14px;
+        }
+
+        .hero {
+            height: 650px;
+            margin: 0 20px;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.7),
+                    rgba(0,0,0,.15)
+                ),
+                url("https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            position: absolute;
+            left: 8%;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 650px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 7vw, 90px);
+            line-height: .95;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            max-width: 500px;
+            line-height: 1.7;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            color: black;
+            padding: 14px 20px;
+            border-radius: 6px;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 100px 6%;
+        }
+
+        .heading {
+            margin-bottom: 45px;
+        }
+
+        .heading small {
+            letter-spacing: 2px;
+            color: #777;
+        }
+
+        .heading h2 {
+            font-size: 55px;
+            margin-top: 15px;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 20px;
+        }
+
+        .card {
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .4s;
+        }
+
+        .card:hover img {
+            transform: scale(1.05);
+        }
+
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                transparent 35%,
+                rgba(0,0,0,.75)
+            );
+        }
+
+        .card-content {
+            position: absolute;
+            z-index: 2;
+            bottom: 25px;
+            left: 25px;
+            color: white;
+        }
+
+        .card-content h3 {
+            font-size: 30px;
+            margin-top: 5px;
+        }
+
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .plan {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .plan img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .plan-content {
+            padding: 25px;
+        }
+
+        .plan-content h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .plan-content p {
+            color: #777;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #151515;
+            color: white;
+            padding: 60px 6%;
+            text-align: center;
+        }
+
+        @media(max-width: 700px) {
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                height: 580px;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .destinations,
+            .plans {
+                grid-template-columns: 1fr;
+            }
+
+            .heading h2 {
+                font-size: 42px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+    <div class="logo">
+        TripInn Holidays
+    </div>
+
+    <nav>
+        <a href="#destinations">Destinations</a>
+        <a href="#plans">Plans</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <p>
+                <i data-lucide="map-pin"></i>
+                YOUR JOURNEY STARTS HERE
+            </p>
+
+            <h1>
+                Discover places
+                worth remembering.
+            </h1>
+
+            <p>
+                Carefully planned journeys and memorable
+                experiences with TripInn Holidays.
+            </p>
+
+            <a href="#plans" class="button">
+                Explore Trips
+                <i data-lucide="arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- DESTINATIONS -->
+    <section id="destinations">
+
+        <div class="heading">
+            <small>DESTINATIONS</small>
+
+            <h2>
+                Places waiting<br>
+                to be explored.
+            </h2>
+        </div>
+
+
+        <div class="destinations">
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1400&q=85"
+                    alt="Kerala"
+                >
+
+                <div class="card-content">
+                    <small>POPULAR</small>
+                    <h3>Kerala</h3>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=85"
+                    alt="Munnar"
+                >
+
+                <div class="card-content">
+                    <small>EXPLORE</small>
+                    <h3>Munnar</h3>
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=85"
+                    alt="Goa beach"
+                >
+
+                <div class="card-content">
+                    <small>EXPLORE</small>
+                    <h3>Goa</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PLANS -->
+    <section id="plans">
+
+        <div class="heading">
+            <small>TRAVEL PLANS</small>
+
+            <h2>
+                Find your next<br>
+                adventure.
+            </h2>
+        </div>
+
+
+        <div class="plans">
+
+            <article class="plan">
+
+                <img
+                    src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1400&q=85"
+                    alt="Kerala travel"
+                >
+
+                <div class="plan-content">
+
+                    <h3>Kerala Escape</h3>
+
+                    <p>
+                        Experience the beauty of Kerala through
+                        a carefully planned journey.
+                    </p>
+
+                </div>
+
+            </article>
+
+
+            <article class="plan">
+
+                <img
+                    src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=85"
+                    alt="Munnar travel"
+                >
+
+                <div class="plan-content">
+
+                    <h3>Munnar Getaway</h3>
+
+                    <p>
+                        Escape into the hills and experience
+                        the calm of Munnar.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer id="contact">
+
+    <h2>TripInn Holidays</h2>
+
+    <p style="margin-top:15px;color:#999;">
+        Journeys worth remembering.
+    </p>
+
+</footer>
+
+
+<script>
+    lucide.createIcons();
+</script>
+
+</body>
+</html>
