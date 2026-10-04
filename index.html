@@ -3,423 +3,555 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="icon.png" type="image/x-icon" />
-    <meta name="facebook-domain-verification" content="szdbjmc3ivpip5htlmzqs4si731phq" />
-    <title>TripInn Holidays</title>
+
+    <link rel="icon" href="icon-cropped.png" type="image/png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cute+Dino" rel="stylesheet">
+    
+    <script src="script.js" defer></script>
+
+    <meta name="facebook-domain-verification"
+          content="szdbjmc3ivpip5htlmzqs4si731phq">
+
+    <meta name="description"
+        content="TripInn Holidays October trips to Munnar and Kodaikanal. Two separate 3 Days / 2 Nights trips on October 18, 19 & 20 at ₹6,500 per person.">
+
+    <title>October Trips | Munnar & Kodaikanal | TripInn Holidays</title>
 
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #f5f4ef;
-            color: #171717;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .navbar {
-            height: 75px;
-            padding: 0 6%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-            font-size: 14px;
-        }
-
-        .hero {
-            height: 650px;
-            margin: 0 20px;
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-
-            background:
-                linear-gradient(
-                    90deg,
-                    rgba(0,0,0,.7),
-                    rgba(0,0,0,.15)
-                ),
-                url("https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=85");
-
-            background-size: cover;
-            background-position: center;
-        }
-
-        .hero-content {
-            position: absolute;
-            left: 8%;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 650px;
-            color: white;
-        }
-
-        .hero h1 {
-            font-size: clamp(50px, 7vw, 90px);
-            line-height: .95;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
-        }
-
-        .hero p {
-            max-width: 500px;
-            line-height: 1.7;
-            color: #ddd;
-            margin-bottom: 30px;
-        }
-
-        .button {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: white;
-            color: black;
-            padding: 14px 20px;
-            border-radius: 6px;
-        }
-
-        section {
-            max-width: 1200px;
-            margin: auto;
-            padding: 100px 6%;
-        }
-
-        .heading {
-            margin-bottom: 45px;
-        }
-
-        .heading small {
-            letter-spacing: 2px;
-            color: #777;
-        }
-
-        .heading h2 {
-            font-size: 55px;
-            margin-top: 15px;
-        }
-
-        .destinations {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 20px;
-        }
-
-        .card {
-            height: 350px;
-            position: relative;
-            overflow: hidden;
-            border-radius: 14px;
-        }
-
-        .card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: .4s;
-        }
-
-        .card:hover img {
-            transform: scale(1.05);
-        }
-
-        .card::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                transparent 35%,
-                rgba(0,0,0,.75)
-            );
-        }
-
-        .card-content {
-            position: absolute;
-            z-index: 2;
-            bottom: 25px;
-            left: 25px;
-            color: white;
-        }
-
-        .card-content h3 {
-            font-size: 30px;
-            margin-top: 5px;
-        }
-
-        .plans {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 25px;
-        }
-
-        .plan {
-            background: white;
-            border-radius: 14px;
-            overflow: hidden;
-        }
-
-        .plan img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-
-        .plan-content {
-            padding: 25px;
-        }
-
-        .plan-content h3 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .plan-content p {
-            color: #777;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #151515;
-            color: white;
-            padding: 60px 6%;
-            text-align: center;
-        }
-
-        @media(max-width: 700px) {
-
-            nav {
-                display: none;
-            }
-
-            .hero {
-                height: 580px;
-            }
-
-            .hero h1 {
-                font-size: 55px;
-            }
-
-            .destinations,
-            .plans {
-                grid-template-columns: 1fr;
-            }
-
-            .heading h2 {
-                font-size: 42px;
-            }
-        }
-    </style>
 </head>
 
+
 <body>
+
+
+<!-- ================= NAVBAR ================= -->
 
 <header class="navbar">
 
     <div class="logo">
         TripInn Holidays
+
     </div>
 
-    <nav>
-        <a href="#destinations">Destinations</a>
-        <a href="#plans">Plans</a>
-        <a href="#contact">Contact</a>
+    <nav id="mainNav">
+        <a href="#trips">Trips</a>
+        <a href="#booking">Booking</a>
     </nav>
+
+    <div class="nav-actions">
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <i data-lucide="moon"></i>
+        </button>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+            <i data-lucide="menu"></i>
+        </button>
+    </div>
 
 </header>
 
 
+
 <main>
 
-    <!-- HERO -->
-    <div class="hero">
 
-        <div class="hero-content">
+<!-- ================= HERO ================= -->
 
-            <p>
-                <i data-lucide="map-pin"></i>
-                YOUR JOURNEY STARTS HERE
-            </p>
+<div class="hero">
 
-            <h1>
-                Discover places
-                worth remembering.
-            </h1>
+    <div class="hero-content">
 
-            <p>
-                Carefully planned journeys and memorable
-                experiences with TripInn Holidays.
-            </p>
+        <div class="hero-tag">
+            <i data-lucide="calendar"></i>
+            OCTOBER 18 • 19 • 20
+        </div>
 
-            <a href="#plans" class="button">
-                Explore Trips
-                <i data-lucide="arrow-right"></i>
-            </a>
+        <h1>
+            Two trips.
+            <span>One choice.</span>
+        </h1>
+
+        <p class="hero-description">
+            Munnar or Kodaikanal?
+            Choose your destination and join us for a
+            3 Days / 2 Nights Stranger Trip filled with
+            new people, new places and unforgettable memories.
+        </p>
+
+        <a href="#trips" class="button">
+            Choose Your Trip
+            <i data-lucide="arrow-down"></i>
+        </a>
+
+    </div>
+
+</div>
+
+
+
+<!-- ================= DESTINATIONS ================= -->
+
+<section id="trips">
+
+    <div class="heading">
+
+        <small>OCTOBER SPECIAL</small>
+
+        <h2>
+            Choose your<br>
+            escape.
+        </h2>
+
+    </div>
+
+
+    <div class="plans">
+
+
+        <!-- ================= MUNNAR ================= -->
+
+        <article class="plan">
+
+            <div class="plan-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1663597675816-9b5d68952f42?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D "
+                    alt="Munnar">
+
+                <div class="image-label">
+                    OCTOBER 18 • 19 • 20
+                </div>
+
+            </div>
+
+
+            <div class="plan-content">
+
+                <div class="plan-tag">
+                    STRANGER TRIP
+                </div>
+
+                <h3>Munnar</h3>
+
+                <p>
+                    Explore the misty mountains of Munnar,
+                    experience the beauty of Eravikulam National
+                    Park and Kolukkumalai experience.
+                </p>
+
+
+                <div class="plan-price">
+                    ₹6,500
+                    <span>/ person</span>
+                </div>
+
+
+                <div class="plan-details">
+
+                    <div>
+                        <i data-lucide="calendar"></i>
+                        <span>3 Days / 2 Nights</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="wallet"></i>
+                        <span>₹3,000 Advance</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="bus"></i>
+                        <span>A/C Van</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="hotel"></i>
+                        <span>3-Star Stay</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="utensils"></i>
+                        <span>Breakfast & Dinner</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="flame"></i>
+                        <span>Bonfire</span>
+                    </div>
+
+                </div>
+
+
+                <div class="highlights">
+
+                    <span>Eravikulam National Park</span>
+                    <span>Kolukkumalai</span>
+                    <span>Sightseeing</span>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/919092613147?text=Hi%20TripInn%20Holidays%2C%20I%20want%20to%20book%20the%20Munnar%20October%20trip."
+                    class="plan-button"
+                    target="_blank">
+
+                    Book Munnar Trip
+
+                    <i data-lucide="arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ================= KODAIKANAL ================= -->
+
+        <article class="plan">
+
+            <div class="plan-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1665481193520-86e5eaba1af6?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Kodaikanal">
+
+                <div class="image-label">
+                    OCTOBER 18 • 19 • 20
+                </div>
+
+            </div>
+
+
+            <div class="plan-content">
+
+                <div class="plan-tag">
+                    STRANGER TRIP
+                </div>
+
+                <h3>Kodaikanal</h3>
+
+                <p>
+                    Escape to the beautiful hills of Kodaikanal,
+                    explore its scenic viewpoints and enjoy a
+                    fun-filled journey with new people.
+                </p>
+
+
+                <div class="plan-price">
+                    ₹6,500
+                    <span>/ person</span>
+                </div>
+
+
+                <div class="plan-details">
+
+                    <div>
+                        <i data-lucide="calendar"></i>
+                        <span>3 Days / 2 Nights</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="wallet"></i>
+                        <span>₹3,000 Advance</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="bus"></i>
+                        <span>A/C Van</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="hotel"></i>
+                        <span>3-Star Stay</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="utensils"></i>
+                        <span>Breakfast & Dinner</span>
+                    </div>
+
+                    <div>
+                        <i data-lucide="flame"></i>
+                        <span>Bonfire</span>
+                    </div>
+
+                </div>
+
+
+                <div class="highlights">
+
+                    <span>Sightseeing</span>
+                    <span>Hill Views</span>
+                    <span>Travel Experience</span>
+
+                </div>
+
+
+                <a
+                    href="https://wa.me/919092613147?text=Hi%20TripInn%20Holidays%2C%20I%20want%20to%20book%20the%20Kodaikanal%20October%20trip." target="_blank"
+                    class="plan-button">
+
+                    Book Kodaikanal Trip
+
+                    <i data-lucide="arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+<!-- ================= BOOKING ================= -->
+
+<section id="booking">
+
+    <div class="booking">
+
+        <h2>
+            Ready to escape?
+        </h2>
+
+        <p>
+
+            Seats are limited for our October Stranger Trip.
+            Confirm your seat with an advance payment of
+            ₹3,000 per person.
+
+        </p>
+
+
+        <!-- Replace # with your WhatsApp booking link -->
+
+        <a href="https://wa.me/919092613147?text=Hi%20TripInn%20Holidays%2C%20I%20want%20to%20book%20the%20October%20trip." class="booking-button" target="_blank">
+
+            Book Your Seat
+
+            <i data-lucide="arrow-up-right"></i>
+
+        </a>
+
+
+        <div class="terms">
+
+            <strong>Cancellation Policy:</strong><br>
+
+            Refund available for cancellations made
+            before 10 days of the trip.
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- DESTINATIONS -->
-    <section id="destinations">
-
-        <div class="heading">
-            <small>DESTINATIONS</small>
-
-            <h2>
-                Places waiting<br>
-                to be explored.
-            </h2>
-        </div>
-
-
-        <div class="destinations">
-
-            <div class="card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1400&q=85"
-                    alt="Kerala"
-                >
-
-                <div class="card-content">
-                    <small>POPULAR</small>
-                    <h3>Kerala</h3>
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=85"
-                    alt="Munnar"
-                >
-
-                <div class="card-content">
-                    <small>EXPLORE</small>
-                    <h3>Munnar</h3>
-                </div>
-
-            </div>
-
-
-            <div class="card">
-
-                <img
-                    src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=85"
-                    alt="Goa beach"
-                >
-
-                <div class="card-content">
-                    <small>EXPLORE</small>
-                    <h3>Goa</h3>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PLANS -->
-    <section id="plans">
-
-        <div class="heading">
-            <small>TRAVEL PLANS</small>
-
-            <h2>
-                Find your next<br>
-                adventure.
-            </h2>
-        </div>
-
-
-        <div class="plans">
-
-            <article class="plan">
-
-                <img
-                    src="https://images.unsplash.com/photo-1593693411515-c20261bcad6e?auto=format&fit=crop&w=1400&q=85"
-                    alt="Kerala travel"
-                >
-
-                <div class="plan-content">
-
-                    <h3>Kerala Escape</h3>
-
-                    <p>
-                        Experience the beauty of Kerala through
-                        a carefully planned journey.
-                    </p>
-
-                </div>
-
-            </article>
-
-
-            <article class="plan">
-
-                <img
-                    src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1400&q=85"
-                    alt="Munnar travel"
-                >
-
-                <div class="plan-content">
-
-                    <h3>Munnar Getaway</h3>
-
-                    <p>
-                        Escape into the hills and experience
-                        the calm of Munnar.
-                    </p>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </section>
 
 </main>
 
 
-<footer id="contact">
 
-    <h2>TripInn Holidays</h2>
+<footer id="contact" class="site-footer">
 
-    <p style="margin-top:15px;color:#999;">
-        Journeys worth remembering.
+  <div class="footer-container">
+
+    <!-- BRAND -->
+    <div class="footer-column footer-brand">
+
+      <h2>TripInn Holidays</h2>
+
+      <div class="footer-accent"></div>
+
+      <p class="footer-tagline">
+        Journeys worth remembering...
+      </p>
+
+      <p class="footer-description">
+        Discover new places, meet new people and create
+        unforgettable travel experiences with TripInn Holidays.
+      </p>
+
+      <div class="footer-social">
+
+        <!-- Instagram -->
+        <a
+            href="https://www.instagram.com/tripinn_holidays/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+            class="social-icon instagram"
+        >
+            <img
+                src="https://cdn.simpleicons.org/instagram"
+                alt="Instagram"
+            >
+        </a>
+
+
+        <!-- Facebook -->
+        <a
+            href="https://www.facebook.com/profile.php?id=61594888161262"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+            class="facebook-icon"
+        >
+            <img
+                src="https://cdn.simpleicons.org/facebook"
+                alt="Facebook"
+            >
+        </a>
+
+    </div>
+
+    </div>
+
+
+    <!-- QUICK LINKS -->
+    <div class="footer-column">
+
+      <h3>Quick Links</h3>
+
+      <div class="footer-accent"></div>
+
+      <ul class="footer-links">
+        <li><a href="#trips">Munnar</a></li>
+        <li><a href="#trips">Kodaikanal</a></li>
+        <!-- <li><a href="#trips">Stranger Trips</a></li>
+        <li><a href="#trips">Upcoming Trips</a></li> -->
+      </ul>
+
+    </div>
+
+
+    <!-- LEGAL / HELP -->
+    <!-- <div class="footer-column">
+
+      <h3>Legal & Help</h3>
+
+      <div class="footer-accent"></div>
+
+      <ul class="footer-links">
+        <li>
+          <a href="#privacy">Privacy Policy</a>
+        </li>
+
+        <li>
+          <a href="#terms">Terms & Conditions</a>
+        </li>
+
+        <li>
+          <a href="#cancellation">
+            Cancellation & Refund Policy
+          </a>
+        </li>
+      </ul>
+
+    </div> -->
+
+
+    <!-- CONTACT -->
+    <div class="footer-column">
+
+      <h3>Contact Us</h3>
+
+      <div class="footer-accent"></div>
+
+      <div class="footer-contact">
+
+        <!-- Location -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i data-lucide="map-pin"></i>
+          </div>
+
+          <div>
+            <span>Location</span>
+            <p>Chennai, Tamil Nadu, India</p>
+          </div>
+        </div>
+
+
+        <!-- Phone -->
+        <div class="contact-item">
+
+          <div class="contact-icon">
+            <i data-lucide="phone"></i>
+          </div>
+
+          <div>
+            <span>Phone</span>
+
+            <a href="tel:+919092613147">
+              +91 9092613147
+            </a>
+            
+            <a href="tel:+918015986118">
+              +91 8015986118
+            </a>
+          </div>
+
+        </div>
+
+
+        <!-- Email -->
+        <div class="contact-item">
+
+          <div class="contact-icon">
+            <i data-lucide="mail"></i>
+          </div>
+
+          <div>
+            <span>Email</span>
+
+            <a href="mailto:tripinnholidays.official@gmail.com">
+              tripinnholidays.official@gmail.com
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SUB FOOTER -->
+  <div class="footer-bottom">
+
+    <p class="copyright">
+      © 2026 TripInn Holidays. All Rights Reserved.
     </p>
+
+    <a href="#booking" class="footer-enquire">
+      ENQUIRE NOW
+    </a>
+
+  </div>
 
 </footer>
 
 
-<script>
-    lucide.createIcons();
-</script>
+<!-- Floating WhatsApp -->
+<a
+  href="https://wa.me/919092613147?text=Hi%20TripInn%20Holidays%2C%20I%20want%20to%20book%20the%20October%20trip."
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat on WhatsApp"
+>
+  <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WhatsApp</title><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 
 </body>
 </html>
