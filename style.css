@@ -1,0 +1,1579 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background: #f5f4ef;
+    color: #171717;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+    height: 75px;
+
+    padding: 0 6%;
+
+    display: flex;
+    align-items: center;
+
+    background: #f5f4ef;
+
+    position: relative;
+    z-index: 1000;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.logo {
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    font-weight: 800;
+    font-style: bold;
+    letter-spacing: 0.7px;
+}
+
+
+/* Desktop navigation */
+
+nav {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    margin-left: auto;
+
+    font-size: 14px;
+}
+
+nav a {
+    color: inherit;
+
+    transition:
+        opacity 0.2s ease;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+
+/* Theme + menu */
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    margin-left: 20px;
+}
+
+.theme-toggle,
+.menu-toggle {
+    border: none;
+
+    background: transparent;
+    color: inherit;
+
+    cursor: pointer;
+
+    padding: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle svg,
+.menu-toggle svg {
+    width: 21px;
+    height: 21px;
+}
+
+
+/* Hamburger hidden on desktop */
+
+.menu-toggle {
+    display: none;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 650px;
+
+    margin: 0 20px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0, 0, 0, 0.78),
+            rgba(0, 0, 0, 0.18)
+        ),
+        url("https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=2000&q=85");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-content {
+    position: absolute;
+
+    left: 8%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    max-width: 700px;
+
+    color: white;
+}
+
+.hero-tag {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: clamp(50px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    display: block;
+}
+
+.hero-description {
+    max-width: 540px;
+
+    margin-bottom: 30px;
+
+    color: #ddd;
+
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.hero-price {
+    margin-bottom: 22px;
+
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.hero-price small {
+    color: #ddd;
+
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+/* =========================================================
+   GENERAL BUTTON
+========================================================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 15px 22px;
+
+    background: #fff;
+    color: #000;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
+
+section {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 100px 6%;
+}
+
+.heading {
+    margin-bottom: 45px;
+}
+
+.heading small {
+    color: #777;
+
+    letter-spacing: 2px;
+}
+
+.heading h2 {
+    margin-top: 15px;
+
+    font-size: 55px;
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+
+/* =========================================================
+   TRIP PLANS
+========================================================= */
+
+.plans {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+}
+
+.plan {
+    overflow: hidden;
+
+    background: #fff;
+
+    border-radius: 16px;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.plan:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Trip image */
+
+.plan-image {
+    height: 330px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.plan-image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.plan:hover .plan-image img {
+    transform: scale(1.05);
+}
+
+
+/* Date label */
+
+.image-label {
+    position: absolute;
+
+    left: 18px;
+    bottom: 18px;
+
+    padding: 9px 12px;
+
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+
+    border-radius: 5px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+}
+
+
+/* Trip content */
+
+.plan-content {
+    padding: 30px;
+}
+
+.plan-tag {
+    margin-bottom: 10px;
+
+    color: #777;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.plan-content h3 {
+    margin-bottom: 12px;
+
+    font-size: 38px;
+}
+
+.plan-content p {
+    margin-bottom: 20px;
+
+    color: #777;
+
+    line-height: 1.7;
+}
+
+
+/* Price */
+
+.plan-price {
+    margin-bottom: 25px;
+
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.plan-price span {
+    color: #777;
+
+    font-size: 14px;
+    font-weight: normal;
+}
+
+
+/* Trip details */
+
+.plan-details {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 20px;
+}
+
+.plan-details div {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 13px;
+}
+
+.plan-details svg {
+    width: 17px;
+
+    flex-shrink: 0;
+}
+
+
+/* Highlights */
+
+.highlights {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 25px;
+}
+
+.highlights span {
+    padding: 7px 10px;
+
+    background: #f1f0eb;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+}
+
+
+/* Book button */
+
+.plan-button {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 15px;
+
+    background: #151515;
+    color: #fff;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+.plan-button:hover {
+    opacity: 0.85;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   TERMS / BOOKING INFORMATION
+========================================================= */
+
+.terms {
+    margin-top: 28px;
+
+    padding: 18px 22px;
+
+    background: #ebeae5;
+
+    border-radius: 10px;
+
+    color: #666;
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.terms strong {
+    color: #171717;
+}
+
+
+/* =========================================================
+   DESTINATIONS
+========================================================= */
+
+.destinations {
+    display: grid;
+
+    grid-template-columns: 1.5fr 1fr;
+
+    gap: 20px;
+}
+
+.card {
+    height: 350px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 14px;
+}
+
+.card:first-child {
+    grid-row: span 2;
+
+    height: 720px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            transparent 35%,
+            rgba(0, 0, 0, 0.78)
+        );
+}
+
+.card-content {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 25px;
+    bottom: 25px;
+
+    color: #fff;
+}
+
+.card-content small {
+    letter-spacing: 2px;
+}
+
+.card-content h3 {
+    margin-top: 5px;
+
+    font-size: 32px;
+}
+
+
+/* =========================================================
+   BOOKING SECTION
+========================================================= */
+
+.booking {
+    padding: 60px;
+
+    background: #151515;
+    color: #fff;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
+
+.booking h2 {
+    margin-bottom: 20px;
+
+    font-size: 50px;
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+.booking p {
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    color: #aaa;
+
+    line-height: 1.7;
+}
+
+.booking-button {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 16px 25px;
+
+    background: #fff;
+    color: #000;
+
+    border-radius: 7px;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.booking-button:hover {
+    transform: translateY(-2px);
+
+    background: #f5f5f5;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode {
+    background: #111;
+    color: #f5f5f5;
+}
+
+
+/* Navbar */
+
+body.dark-mode .navbar {
+    background: #111;
+}
+
+
+/* Navigation */
+
+body.dark-mode nav a {
+    color: #f5f5f5;
+}
+
+
+/* Headings */
+
+body.dark-mode .heading small {
+    color: #aaa;
+}
+
+
+/* Trip cards */
+
+body.dark-mode .plan {
+    background: #1c1c1c;
+}
+
+body.dark-mode .plan-content p {
+    color: #aaa;
+}
+
+body.dark-mode .plan-price span {
+    color: #aaa;
+}
+
+body.dark-mode .plan-details div {
+    color: #ddd;
+}
+
+
+/* Highlights */
+
+body.dark-mode .highlights span {
+    background: #292929;
+    color: #ddd;
+}
+
+
+/* Trip buttons */
+
+body.dark-mode .plan-button {
+    background: #f5f5f5;
+    color: #111;
+}
+
+
+/* Terms */
+
+body.dark-mode .terms {
+    background: #202020;
+    color: #aaa;
+}
+
+body.dark-mode .terms strong {
+    color: #fff;
+}
+
+
+/* Booking */
+
+body.dark-mode .booking {
+    background: #1b1b1b;
+    color: #f5f5f5;
+
+    border: 1px solid #292929;
+}
+
+body.dark-mode .booking p {
+    color: #aaa;
+}
+
+body.dark-mode .booking-button {
+    background: #f5f5f5;
+    color: #111;
+}
+
+body.dark-mode .booking-button:hover {
+    background: #fff;
+}
+
+body.dark-mode .booking .terms {
+    background: #292929;
+    color: #aaa;
+}
+
+body.dark-mode .booking .terms strong {
+    color: #f5f5f5;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.site-footer {
+    margin-top: 80px;
+
+    background: #111111;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   FOOTER MAIN CONTAINER
+========================================================= */
+
+.footer-container {
+    width: min(1050px, calc(100% - 60px));
+
+    margin: 0 auto;
+
+    padding: 70px 0 60px;
+
+    display: grid;
+
+    /*
+       Your current footer has:
+       1. Brand
+       2. Quick Links
+       3. Contact
+
+       Therefore we use 3 columns instead of
+       forcing an empty fourth column.
+    */
+
+    grid-template-columns:
+        1.5fr
+        0.8fr
+        1.2fr;
+
+    column-gap: 80px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   FOOTER HEADINGS
+========================================================= */
+
+.footer-column h2,
+.footer-column h3 {
+    margin: 0;
+
+    font-family:
+        "Poppins",
+        "Inter",
+        Arial,
+        sans-serif;
+
+    color: #f5f5f5;
+}
+
+.footer-column h2 {
+    font-size: 27px;
+
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    letter-spacing: -0.6px;
+}
+
+.footer-column h3 {
+    font-size: 16px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   FOOTER ACCENT
+========================================================= */
+
+.footer-accent {
+    width: 48px;
+    height: 2px;
+
+    margin: 17px 0 24px;
+
+    background: #e5e5e5;
+}
+
+
+/* =========================================================
+   FOOTER BRAND
+========================================================= */
+
+.footer-tagline {
+    margin: 0 0 14px;
+
+    color: #eeeeee;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+}
+
+.footer-description {
+    max-width: 330px;
+
+    margin: 0;
+
+    color: #999999;
+
+    font-size: 13px;
+
+    line-height: 1.85;
+}
+
+
+/* =========================================================
+   SOCIAL MEDIA
+========================================================= */
+
+.footer-social {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-top: 26px;
+}
+
+
+/*
+   Outer social container.
+
+   The actual Instagram/Facebook colors
+   come from the image itself.
+*/
+
+.footer-social .social-icon,
+.footer-social .facebook-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+
+    border: none;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.25s ease,
+        opacity 0.25s ease;
+}
+
+
+/* Actual brand logo */
+
+.footer-social .social-icon img,
+.footer-social .facebook-icon img {
+    width: 30px;
+    height: 30px;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+
+/* Social hover */
+
+.footer-social .social-icon:hover,
+.footer-social .facebook-icon:hover {
+    transform: translateY(-3px);
+
+    opacity: 0.82;
+}
+
+
+/* =========================================================
+   QUICK LINKS
+========================================================= */
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+
+    gap: 13px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-links li {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-links a {
+    display: inline-block;
+
+    color: #999999;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+
+    transform: translateX(3px);
+}
+
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+}
+
+
+/* Contact icon */
+
+.contact-icon {
+    flex: 0 0 34px;
+
+    width: 34px;
+    height: 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #151515;
+
+    border: 1px solid #303030;
+
+    border-radius: 8px;
+
+    color: #dddddd;
+}
+
+.contact-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+
+/* Contact label */
+
+.contact-item span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #666666;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* Contact information */
+
+.contact-item p,
+.contact-item a {
+    display: block;
+
+    margin: 0;
+
+    color: #c2c2c2;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.contact-item a:hover {
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   FOOTER BOTTOM / SUB FOOTER
+========================================================= */
+
+.footer-bottom {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 25px;
+
+    /*
+       Extra left padding prevents the
+       WhatsApp button from covering copyright.
+    */
+
+    padding:
+        15px
+        max(35px, calc((100% - 1050px) / 2))
+        15px
+        max(100px, calc((100% - 1050px) / 2));
+
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+
+    background: #0d0d0d;
+}
+
+
+/* Copyright */
+
+.copyright {
+    margin: 0;
+
+    color: #777777;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   ENQUIRE NOW
+========================================================= */
+
+.footer-enquire {
+    min-width: 145px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 13px 23px;
+
+    background: #f5c400;
+    color: #111111;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.footer-enquire:hover {
+    background: #ffffff;
+    color: #111111;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 22px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   WHATSAPP FLOAT
+========================================================= */
+
+.whatsapp-float {
+    position: fixed;
+
+    left: 25px;
+    bottom: 25px;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #25D366;
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.28);
+
+    z-index: 1000;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.07);
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.35);
+}
+
+.whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+}
+
+
+/* =========================================================
+   FOOTER DARK MODE
+========================================================= */
+
+body.dark-mode .site-footer {
+    background: #111111;
+}
+
+body.dark-mode .footer-bottom {
+    background: #0b0b0b;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+
+    .footer-container {
+        width: min(720px, calc(100% - 50px));
+
+        grid-template-columns:
+            1fr
+            1fr;
+
+        column-gap: 50px;
+
+        row-gap: 45px;
+    }
+
+    /*
+       Contact occupies the full second row.
+    */
+
+    .footer-column:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-contact {
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        gap: 25px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    /* ================= NAVBAR ================= */
+
+    .navbar {
+        height: 70px;
+
+        padding: 0 6%;
+    }
+
+    .nav-actions {
+        margin-left: auto;
+
+        gap: 4px;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+
+        left: 15px;
+        right: 15px;
+
+        margin-left: 0;
+
+        padding: 10px;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #ffffff;
+
+        border-radius: 12px;
+
+        box-shadow:
+            0 10px 30px rgba(0, 0, 0, 0.12);
+
+        z-index: 1000;
+    }
+
+    nav.active {
+        display: flex;
+    }
+
+    nav a {
+        width: 100%;
+
+        padding: 15px;
+
+        border-radius: 8px;
+
+        font-size: 15px;
+    }
+
+    nav a:hover {
+        background: #f5f4ef;
+
+        opacity: 1;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .hero {
+        min-height: 600px;
+
+        margin: 0 10px;
+    }
+
+    .hero-content {
+        left: 8%;
+        right: 8%;
+    }
+
+    .hero h1 {
+        font-size: 55px;
+
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    /* ================= PLANS ================= */
+
+    .plans {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-details {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* ================= DESTINATIONS ================= */
+
+    .destinations {
+        grid-template-columns: 1fr;
+    }
+
+    .card:first-child {
+        grid-row: auto;
+
+        height: 350px;
+    }
+
+
+    /* ================= HEADINGS ================= */
+
+    .heading h2 {
+        font-size: 42px;
+    }
+
+
+    /* ================= BOOKING ================= */
+
+    .booking {
+        padding: 45px 25px;
+    }
+
+    .booking h2 {
+        font-size: 40px;
+    }
+
+
+    /* ================= FOOTER ================= */
+
+    .site-footer {
+        margin-top: 60px;
+    }
+
+    .footer-container {
+        width: calc(100% - 40px);
+
+        padding: 55px 0 45px;
+
+        grid-template-columns: 1fr;
+
+        gap: 42px;
+    }
+
+    .footer-column:last-child {
+        grid-column: auto;
+    }
+
+    .footer-column h2 {
+        font-size: 25px;
+    }
+
+    .footer-description {
+        max-width: 100%;
+    }
+
+    .footer-contact {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    .footer-bottom {
+        min-height: auto;
+
+        padding:
+            25px
+            20px
+            95px;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 20px;
+    }
+
+    .copyright {
+        font-size: 11px;
+    }
+
+    .footer-enquire {
+        width: 100%;
+
+        max-width: 260px;
+    }
+
+    .whatsapp-float {
+        width: 52px;
+        height: 52px;
+
+        left: 18px;
+        bottom: 18px;
+    }
+}
+
+
+/* =========================================================
+   DARK MODE — MOBILE MENU
+========================================================= */
+
+@media (max-width: 800px) {
+
+    body.dark-mode nav {
+        background: #1c1c1c;
+    }
+
+    body.dark-mode nav a {
+        color: #ffffff;
+    }
+
+    body.dark-mode nav a:hover {
+        background: #292929;
+    }
+
+    body.dark-mode .terms {
+        background: #202020;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .navbar {
+        padding: 0 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+
+        letter-spacing: -2.5px;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    section {
+        padding: 75px 5%;
+    }
+
+    .heading h2 {
+        font-size: 36px;
+    }
+
+    .plan-content {
+        padding: 24px;
+    }
+
+    .plan-content h3 {
+        font-size: 32px;
+    }
+
+    .booking {
+        border-radius: 14px;
+
+        padding: 40px 20px;
+    }
+
+    .booking h2 {
+        font-size: 34px;
+    }
+
+    .footer-social {
+        gap: 15px;
+    }
+
+    .footer-social .social-icon,
+    .footer-social .facebook-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer-social .social-icon img,
+    .footer-social .facebook-icon img {
+        width: 29px;
+        height: 29px;
+    }
+
+    .whatsapp-float {
+        left: 15px;
+        bottom: 15px;
+    }
+}
