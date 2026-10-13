@@ -40,72 +40,111 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-    // --- Carousel Navigation with Dynamic Disabled State ---
-    const carousel = document.getElementById('plansContainer');
-    const prevBtn = document.getElementById('carousel-prev');
-    const nextBtn = document.getElementById('carousel-next');
+  // --- Carousel Navigation with Controlled Slow Scroll ---
+  const carousel = document.getElementById('plansContainer');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
 
-    if (carousel && prevBtn && nextBtn) {
-    // Update button disabled state based on scroll offset
+  if (carousel && prevBtn && nextBtn) {
+    let isScrolling = false;
+
     const updateButtonStates = () => {
-        // 2px threshold handles subpixel rounding errors across browsers
-        const isAtStart = carousel.scrollLeft <= 2;
-        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-        const isAtEnd = carousel.scrollLeft >= maxScroll - 2;
+      const isAtStart = carousel.scrollLeft <= 4;
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      const isAtEnd = carousel.scrollLeft >= maxScroll - 4;
 
-        prevBtn.disabled = isAtStart;
-        nextBtn.disabled = isAtEnd;
+      prevBtn.disabled = isAtStart;
+      nextBtn.disabled = isAtEnd;
+
+      prevBtn.style.opacity = isAtStart ? '0.35' : '1';
+      prevBtn.style.pointerEvents = isAtStart ? 'none' : 'auto';
+      nextBtn.style.opacity = isAtEnd ? '0.35' : '1';
+      nextBtn.style.pointerEvents = isAtEnd ? 'none' : 'auto';
     };
 
-    const scrollCarousel = (direction) => {
-        const cards = Array.from(carousel.querySelectorAll('.plan'));
-        if (!cards.length) return;
+    // Custom slow smooth scroll animation
+    const smoothScrollTo = (targetPosition, duration = 850) => {
+      const startPosition = carousel.scrollLeft;
+      const distance = targetPosition - startPosition;
+      let startTime = null;
 
-        const style = window.getComputedStyle(carousel);
-        const gap = parseFloat(style.columnGap || style.gap) || 24;
-        const cardWidth = cards[0].getBoundingClientRect().width;
-        const scrollStep = cardWidth + gap;
+      // Smooth cubic easing (starts gentle, glides to a stop)
+      const easeInOutCubic = (t) =>
+        t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
-        carousel.scrollBy({
-        left: direction === 'next' ? scrollStep : -scrollStep,
-        behavior: 'smooth',
-        });
+      const animation = (currentTime) => {
+        if (!startTime) startTime = currentTime;
+        const timeElapsed = currentTime - startTime;
+        const progress = Math.min(timeElapsed / duration, 1);
+        const ease = easeInOutCubic(progress);
 
-        // Subtle highlight pulse on card
-        setTimeout(() => {
-        const carouselRect = carousel.getBoundingClientRect();
-        const currentCard = cards.find((card) => {
+        carousel.scrollLeft = startPosition + distance * ease;
+
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation);
+        } else {
+          // Animation finished: restore native snap
+          carousel.style.scrollSnapType = 'x mandatory';
+          isScrolling = false;
+          updateButtonStates();
+
+          // Trigger highlight pulse
+          const cards = Array.from(carousel.querySelectorAll('.plan'));
+          const carouselRect = carousel.getBoundingClientRect();
+          const currentCard = cards.find((card) => {
             const rect = card.getBoundingClientRect();
-            return (
-            rect.left >= carouselRect.left - 50 &&
-            rect.left <= carouselRect.right
-            );
-        });
+            return rect.left >= carouselRect.left - 20 && rect.left <= carouselRect.right;
+          });
 
-        if (currentCard) {
+          if (currentCard) {
             currentCard.classList.remove('card-highlight');
             void currentCard.offsetWidth;
             currentCard.classList.add('card-highlight');
+          }
         }
-        }, 280);
+      };
+
+      requestAnimationFrame(animation);
     };
 
-    // Event Listeners
+    const scrollCarousel = (direction) => {
+      if (isScrolling) return;
+
+      const cards = Array.from(carousel.querySelectorAll('.plan'));
+      if (!cards.length) return;
+
+      const style = window.getComputedStyle(carousel);
+      const gap = parseFloat(style.columnGap || style.gap) || 24;
+      const cardWidth = cards[0].offsetWidth;
+      const scrollStep = cardWidth + gap;
+
+      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+      const rawTarget =
+        direction === 'next'
+          ? carousel.scrollLeft + scrollStep
+          : carousel.scrollLeft - scrollStep;
+      const targetScroll = Math.max(0, Math.min(rawTarget, maxScroll));
+
+      isScrolling = true;
+      carousel.style.scrollSnapType = 'none';
+
+      // 850ms gives a smooth, noticeable glide (increase to 1000ms+ for even slower)
+      smoothScrollTo(targetScroll, 850);
+    };
+
     prevBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        scrollCarousel('prev');
+      e.preventDefault();
+      scrollCarousel('prev');
     });
 
     nextBtn.addEventListener('click', (e) => {
-        e.preventDefault();
-        scrollCarousel('next');
+      e.preventDefault();
+      scrollCarousel('next');
     });
 
-    // Track scroll and window resizing
     carousel.addEventListener('scroll', updateButtonStates, { passive: true });
     window.addEventListener('resize', updateButtonStates, { passive: true });
 
-    // Initial check on page load
     updateButtonStates();
-    }
+  }
 });
