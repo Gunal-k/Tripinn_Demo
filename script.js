@@ -510,4 +510,24 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', checkScrollPosition, { passive: true });
     checkScrollPosition();
   }
+
+  // --- 9. Real-Time Telemetry & WhatsApp Conversion Event ---
+  const trackAnalyticsEvent = (eventType, extra = {}) => {
+    if (window.va && typeof window.va === 'function') {
+      window.va('event', { name: eventType, ...extra });
+    }
+  };
+
+  // Track initial page visit
+  trackAnalyticsEvent('page_view', { path: window.location.pathname });
+
+  // Track WhatsApp inquiry clicks across all CTAs
+  document.querySelectorAll('a[href*="wa.me"]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      trackAnalyticsEvent('whatsapp_click', {
+        href: btn.getAttribute('href'),
+        label: btn.innerText.trim() || 'WhatsApp CTA',
+      });
+    });
+  });
 });
